@@ -11,16 +11,18 @@ const TaskList = () => {
     LEVELS.NORMAL
   );
 
+  // Estado del componente
+  const [tasks, setTasks] = useState(defaultTask);
+  const [loading, setLoading] = useState(true);
+
   // Control del ciclo de vida del componente
   useEffect(() => {
     console.log("Task state has been modified");
+    setLoading(false);
     return () => {
       console.log("TaskList omponent is going to unmount...");
     };
   }, []);
-
-  // Estado del componente
-  const [tasks, setTasks] = useState(defaultTask);
 
   const changeCompleted = (id) => {
     console.log("TODO: Cambiar estado de una tarea");
