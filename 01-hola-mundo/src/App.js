@@ -5,7 +5,7 @@ import GreetingF from "./components/pure/GreetingF";
 import TaskList from "./components/container/TaskList";
 import Ejemplo1 from "./hooks/Ejemplo1";
 import Ejemplo2 from "./hooks/Ejemplo2";
-import { MiComponenteonContexto } from "./hooks/Ejemplo3";
+import { MiComponenteConContexto } from "./hooks/Ejemplo3";
 import Ejemplo4 from "./hooks/Ejemplo4";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         {/* Ejemplo de uso de HOOKS */}
         {/* <Ejemplo1 /> */}
         {/* <Ejemplo2 /> */}
-        {/* <MiComponenteonContexto /> */}
+        {/* <MiComponenteConContexto /> */}
         <Ejemplo4 nombre="Fernando">
           {/* Todo lo que hay aquí, es tratado como props.children | children */}
           <h3>Contenido del props.children</h3>

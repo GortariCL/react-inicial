@@ -34,7 +34,7 @@ const Componente2 = () => {
   );
 };
 
-export const MiComponenteonContexto = () => {
+export const MiComponenteConContexto = () => {
   const initialState = { token: "1234567", sesion: 1 };
 
   // Creamos el estado de este componente
