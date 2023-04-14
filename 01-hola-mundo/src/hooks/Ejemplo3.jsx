@@ -34,10 +34,6 @@ const Componente2 = () => {
   );
 };
 
-const Componente3 = () => {
-  return <div></div>;
-};
-
 export const MiComponenteonContexto = () => {
   const initialState = { token: "1234567", sesion: 1 };
 
