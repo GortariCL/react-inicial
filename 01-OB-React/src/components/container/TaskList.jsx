@@ -3,6 +3,9 @@ import { Task } from "../../models/task.class";
 import { LEVELS } from "../../models/levels.enum";
 import TaskComponent from "../pure/TaskComponent";
 
+// Importamos la hoja de estilos de task.scss
+import "../../styles/task.scss";
+
 const TaskList = () => {
   const defaultTask = new Task(
     "Example",
@@ -30,7 +33,9 @@ const TaskList = () => {
 
   return (
     <div>
-      <div>Your Tasks:</div>
+      <div>
+        <h1>Your Tasks:</h1>
+      </div>
       {/* TODO: Aplicar un map para renderizar una lista */}
       <TaskComponent task={defaultTask} />
     </div>
