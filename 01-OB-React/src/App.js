@@ -12,24 +12,24 @@ import { GreetingStyled } from "./components/pure/GreetingStyled";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* Componente propio Greeting.jsx */}
-        {/* <Greeting name="Fernando" /> */}
-        {/* Componente de ejemplo funcional */}
-        {/* <GreetingF name="Fernando" /> */}
-        {/* Componente de listado de tareas */}
-        {/* <TaskList /> */}
-        {/* Ejemplo de uso de HOOKS */}
-        {/* <Ejemplo1 /> */}
-        {/* <Ejemplo2 /> */}
-        {/* <MiComponenteConContexto /> */}
-        {/* <Ejemplo4 nombre="Fernando"> */}
-        {/* Todo lo que hay aquí, es tratado como props.children | children */}
-        {/* <h3>Contenido del props.children</h3>
+      {/* <header className="App-header"> */}
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      {/* Componente propio Greeting.jsx */}
+      {/* <Greeting name="Fernando" /> */}
+      {/* Componente de ejemplo funcional */}
+      {/* <GreetingF name="Fernando" /> */}
+      {/* Componente de listado de tareas */}
+      {/* Ejemplo de uso de HOOKS */}
+      {/* <Ejemplo1 /> */}
+      {/* <Ejemplo2 /> */}
+      {/* <MiComponenteConContexto /> */}
+      {/* <Ejemplo4 nombre="Fernando"> */}
+      {/* Todo lo que hay aquí, es tratado como props.children | children */}
+      {/* <h3>Contenido del props.children</h3>
         </Ejemplo4> */}
-        <GreetingStyled name="Fernando" />
-      </header>
+      {/* <GreetingStyled name="Fernando" /> */}
+      {/* </header> */}
+      <TaskList />
     </div>
   );
 }
