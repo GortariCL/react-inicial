@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Task } from "../../models/task.class";
 import { LEVELS } from "../../models/levels.enum";
 import TaskComponent from "../pure/TaskComponent";
+import { TaskForm } from "../pure/forms/TaskForm";
 
 // Importamos la hoja de estilos de task.scss
 import "../../styles/task.scss";
-import { TaskForm } from "../pure/forms/TaskForm";
 
 const TaskList = () => {
   const defaultTask1 = new Task(
