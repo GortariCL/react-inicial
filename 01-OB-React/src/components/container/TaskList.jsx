@@ -85,28 +85,32 @@ const TaskList = () => {
             data-mdb-perfect-scrollbar="true"
             style={{ position: "relative", height: "400px" }}
           >
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Title</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Priority</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tasks.map((task, index) => {
-                  return (
-                    <TaskComponent
-                      key={index}
-                      task={task}
-                      complete={completeTask}
-                      remove={deleteTask}
-                    />
-                  );
-                })}
-              </tbody>
-            </table>
+            {tasks.length > 0 ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tasks.map((task, index) => {
+                    return (
+                      <TaskComponent
+                        key={index}
+                        task={task}
+                        complete={completeTask}
+                        remove={deleteTask}
+                      />
+                    );
+                  })}
+                </tbody>
+              </table>
+            ) : (
+              <p style={{ color: "grey" }}>No tasks to do</p>
+            )}
           </div>
         </div>
       </div>
