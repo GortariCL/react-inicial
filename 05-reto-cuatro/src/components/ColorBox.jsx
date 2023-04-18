@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const ColorBox = () => {
-  const [color, setColor] = useState("black");
+  const [color, setColor] = useState("rgb(0,0,0)");
 
   const changeColor = () => {
     const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
@@ -19,20 +19,23 @@ export const ColorBox = () => {
   };
 
   return (
-    <div
-      style={{
-        width: "255px",
-        height: "255px",
-        backgroundColor: color,
-      }}
-      onMouseEnter={() => {
-        document.addEventListener("mouseover", changeColor);
-      }}
-      onMouseLeave={() => {
-        document.removeEventListener("mouseover", changeColor);
-        stopColorChange();
-      }}
-      onDoubleClick={handleDoubleClick}
-    />
+    <>
+      <div
+        style={{
+          width: "255px",
+          height: "255px",
+          backgroundColor: color,
+        }}
+        onMouseEnter={() => {
+          document.addEventListener("mouseover", changeColor);
+        }}
+        onMouseLeave={() => {
+          document.removeEventListener("mouseover", changeColor);
+          stopColorChange();
+        }}
+        onDoubleClick={handleDoubleClick}
+      ></div>
+      <p style={{ color: "black" }}>Color: {color} </p>
+    </>
   );
 };
