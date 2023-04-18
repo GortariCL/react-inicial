@@ -1,15 +1,7 @@
 import PropTypes from "prop-types";
 import { Contact } from "../../models/contact.class";
-import { useEffect } from "react";
 
 export const ContactComponent = ({ contact, changeContactStatus, remove }) => {
-  useEffect(() => {
-    console.log("Created Task");
-    return () => {
-      console.log(`Task: ${contact.name} is going to unmount`);
-    };
-  }, [contact]);
-
   const contactStatusBadge = () => {
     switch (contact.isConected) {
       case true:
