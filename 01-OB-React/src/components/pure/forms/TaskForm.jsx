@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { LEVELS } from "../../../models/levels.enum";
 import { Task } from "../../../models/task.class";
-import { useState } from "react";
 
 export const TaskForm = ({ add, length }) => {
   const nameRef = useRef("");
