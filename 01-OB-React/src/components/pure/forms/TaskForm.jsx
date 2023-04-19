@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { LEVELS } from "../../../models/levels.enum";
 import { Task } from "../../../models/task.class";
+import { useState } from "react";
 
-export const TaskForm = ({ add }) => {
+export const TaskForm = ({ add, length }) => {
   const nameRef = useRef("");
   const descriptionRef = useRef("");
   const levelRef = useRef(LEVELS.NORMAL);
@@ -18,6 +19,31 @@ export const TaskForm = ({ add }) => {
     );
     add(newTask);
   };
+
+  const options = [
+    {
+      value: LEVELS.NORMAL,
+      label: "Normal",
+    },
+    {
+      value: LEVELS.URGENT,
+      label: "Urgent",
+    },
+    {
+      value: LEVELS.BLOCKING,
+      label: "Blocking",
+    },
+  ];
+
+  const selectOptions = options.map((option) => (
+    <option
+      key={option.value}
+      value={option.value}
+      className={option.className}
+    >
+      {option.label}
+    </option>
+  ));
 
   return (
     <form
@@ -46,19 +72,23 @@ export const TaskForm = ({ add }) => {
         <label htmlFor="selectLevel" className="sr-only">
           Priority
         </label>
-        <select ref={levelRef} defaultValue={LEVELS.NORMAL} id="selectLevel">
-          <option value={LEVELS.NORMAL}>{LEVELS.NORMAL}</option>
-          <option value={LEVELS.URGENT}>{LEVELS.URGENT}</option>
-          <option value={LEVELS.BLOCKING}>{LEVELS.BLOCKING}</option>
+        <select
+          className="form-select form-select-lg mb-2"
+          ref={levelRef}
+          defaultValue={options[0].label}
+          id="selectLevel"
+        >
+          {selectOptions}
         </select>
+        <button type="submit" className="btn btn-success btn-lg ms-2">
+          {length > 0 ? "Add New Task" : "Create Yout First Task"}
+        </button>
       </div>
-      <button type="submit" className="btn btn-success btn-lg ms-2">
-        Add
-      </button>
     </form>
   );
 };
 
 TaskForm.protoTypes = {
   add: PropTypes.func.isRequired,
+  length: PropTypes.number.isRequired,
 };

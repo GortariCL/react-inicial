@@ -34,10 +34,10 @@ function App() {
       {/* Gestión de eventos */}
       {/* <Father /> */}
       {/* Ejemplo de Renderizado condicional */}
-      <OptionalRender />
+      {/* <OptionalRender /> */}
 
       {/* PROYECTO FINAL */}
-      {/* <TaskList /> */}
+      <TaskList />
     </div>
   );
 }

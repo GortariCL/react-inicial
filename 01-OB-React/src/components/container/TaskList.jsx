@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Task } from "../../models/task.class";
 import { LEVELS } from "../../models/levels.enum";
 import TaskComponent from "../pure/TaskComponent";
@@ -39,15 +39,17 @@ const TaskList = () => {
 
   // Control del ciclo de vida del componente
   useEffect(() => {
-    console.log("Task state has been modified");
-    setLoading(false);
+    // console.log("Task state has been modified");
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     return () => {
-      console.log("TaskList omponent is going to unmount...");
+      // console.log("TaskList omponent is going to unmount...");
     };
   }, []);
 
   const completeTask = (task) => {
-    console.log("Complete this task: ", task);
+    // console.log("Complete this task: ", task);
     const index = tasks.indexOf(task);
     const tempTasks = [...tasks];
     tempTasks[index].completed = !tempTasks[index].completed;
@@ -57,7 +59,7 @@ const TaskList = () => {
   };
 
   const deleteTask = (task) => {
-    console.log("Delete this task: ", task);
+    // console.log("Delete this task: ", task);
     const index = tasks.indexOf(task);
     const tempTasks = [...tasks];
     tempTasks.splice(index, 1);
@@ -65,10 +67,46 @@ const TaskList = () => {
   };
 
   const addTask = (task) => {
-    console.log("Delete this task: ", task);
+    // console.log("Delete this task: ", task);
     const tempTasks = [...tasks];
     tempTasks.push(task);
     setTasks(tempTasks);
+  };
+
+  const Table = () => {
+    if (tasks.length > 0) {
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tasks.map((task, index) => {
+              return (
+                <TaskComponent
+                  key={index}
+                  task={task}
+                  complete={completeTask}
+                  remove={deleteTask}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      );
+    } else {
+      return (
+        <div>
+          <h5>There are no tasks to show</h5>
+          <h6>Please, create one</h6>
+        </div>
+      );
+    }
   };
 
   return (
@@ -85,36 +123,19 @@ const TaskList = () => {
             data-mdb-perfect-scrollbar="true"
             style={{ position: "relative", height: "400px" }}
           >
-            {tasks.length > 0 ? (
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tasks.map((task, index) => {
-                    return (
-                      <TaskComponent
-                        key={index}
-                        task={task}
-                        complete={completeTask}
-                        remove={deleteTask}
-                      />
-                    );
-                  })}
-                </tbody>
-              </table>
+            {loading ? (
+              <div class="d-flex justify-content-center">
+                <div class="spinner-grow text-warning" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
             ) : (
-              <p style={{ color: "grey" }}>No tasks to do</p>
+              <Table />
             )}
           </div>
         </div>
       </div>
-      <TaskForm add={addTask} />
+      <TaskForm add={addTask} length={tasks.length} />
     </div>
   );
 };

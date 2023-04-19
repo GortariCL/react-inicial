@@ -1,3 +1,26 @@
 .task__action {
   cursor: pointer;
 }
+
+.task__completed {
+  color: gray;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+.task__pending {
+  font-weight: bold;
+  color: tomato;
+}
+
+.level__normal {
+  color: blue !important;
+}
+
+.level__urgent {
+  color: yellow !important;
+}
+
+.level__blocking {
+  color: tomato !important;
+}
