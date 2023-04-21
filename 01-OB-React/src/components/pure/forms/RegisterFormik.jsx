@@ -60,7 +60,7 @@ export const RegisterFormik = () => {
                     handleBlur,
                 }) => (
                     <Form>
-                        <label htmlFor="username">Email</label>
+                        <label htmlFor="username">Username</label>
                         <Field
                             id="username"
                             name="username"
